@@ -1,0 +1,27 @@
+{
+  "name": "reddit-messenger",
+  "version": "1.0.0",
+  "description": "A Node.js script that uses Puppeteer to automate Reddit login and message sending",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "test-captcha": "node test-captcha.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "reddit",
+    "puppeteer",
+    "automation",
+    "messaging"
+  ],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@2captcha/captcha-solver": "^1.3.0",
+    "2captcha": "^3.0.5-2",
+    "puppeteer": "^24.9.0",
+    "puppeteer-extra": "^3.3.6",
+    "puppeteer-extra-plugin-stealth": "^2.11.2",
+    "winston": "^3.11.0"
+  }
+}

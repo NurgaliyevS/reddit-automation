@@ -1,0 +1,5 @@
+# List of Reddit users to message
+# One username per line
+# Lines starting with # are ignored
+Waste_Swing_4982
+# Add more usernames below
