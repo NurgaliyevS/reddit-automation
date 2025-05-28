@@ -336,8 +336,9 @@ async function verifyLoginSuccess(page) {
  * Extract chat URL from user profile page
  */
 async function extractChatUrl(page) {
-  await page.waitForSelector('button, a', { timeout: 10000 });
-  
+  const button = await page.waitForSelector('button, a', { timeout: 10000 });
+  log(`Button found: ${button}`);
+
   return await page.evaluate(() => {
     console.log('=== EXTRACTING CHAT URL FROM START CHAT BUTTON ===');
     
