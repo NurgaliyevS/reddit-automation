@@ -6,6 +6,8 @@ const {
   saveResults 
 } = require('./redditUtils');
 
+require("dotenv").config();
+
 /**
  * Reddit Messenger Bot with modular structure
  */
@@ -19,6 +21,15 @@ const DEFAULT_CONFIG = {
     'Hi there, I found your profile interesting and wanted to chat.'
   ]
 };
+
+const redditUsername = process.env.REDDIT_USERNAME;
+const redditPassword = process.env.REDDIT_PASSWORD;
+const targetUser = "u/the_marketing_geek";
+const messageText = `
+"Hi the_marketing_geek.
+
+I see that you post a lot in the marketing subreddit. Ever wish that you cross-post to multiple subreddits on different days?"
+`;
 
 /**
  * Main function to log in to Reddit and send a message to a user
@@ -81,32 +92,7 @@ async function redditMessenger(username, password, targetUser, messageText, conf
   }
 }
 
-// Command line interface
-if (require.main === module) {
-  const args = process.argv.slice(2);
-  
-  if (args.length < 3) {
-    console.log('Usage: node index.js <username> <password> <targetUser> [messageText] [proxy]');
-    console.log('Example: node index.js myUsername myPassword userToMessage "Hello there!" http://proxy:8080');
-    process.exit(1);
-  }
-  
-  const username = args[0];
-  const password = args[1];
-  const targetUser = args[2];
-  const messageText = args[3] || DEFAULT_CONFIG.messageTemplates[0];
-  const proxy = args[4] || null;
-  
-  redditMessenger(username, password, targetUser, messageText, { proxy })
-    .then(() => {
-      console.log('Operation completed successfully.');
-      process.exit(0);
-    })
-    .catch((error) => {
-      console.error('Operation failed:', error.message);
-      process.exit(1);
-    });
-}
+redditMessenger(redditUsername, redditPassword, targetUser, messageText);
 
 // Export the function for use as a module
 module.exports = { redditMessenger };
