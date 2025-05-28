@@ -393,6 +393,10 @@ async function sendMessageToUser(page, targetUser, messageText) {
       waitUntil: 'domcontentloaded',
       timeout: 30000 
     });
+    // take a screenshot of the page
+    await page.screenshot({ path: 'screenshot.png' });
+    // wait for 10 seconds
+    await new Promise(resolve => setTimeout(resolve, 5000));
     
     // Check if user exists
     log(`Checking if user ${targetUser} exists`);
@@ -412,6 +416,8 @@ async function sendMessageToUser(page, targetUser, messageText) {
     
     // Extract chat URL
     log('Looking for chat button');
+    // screenshot the page
+    await page.screenshot({ path: 'screenshot.png' });
     const chatUrl = await extractChatUrl(page);
     if (!chatUrl) {
       throw new Error('Chat button not found or user has disabled messaging');

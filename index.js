@@ -24,7 +24,7 @@ const DEFAULT_CONFIG = {
 
 const redditUsername = process.env.REDDIT_USERNAME;
 const redditPassword = process.env.REDDIT_PASSWORD;
-const targetUser = "u/the_marketing_geek";
+const targetUser = "the_marketing_geek";
 const messageText = `
 "Hi the_marketing_geek.
 
