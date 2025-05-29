@@ -26,9 +26,9 @@ const redditUsername = process.env.REDDIT_USERNAME;
 const redditPassword = process.env.REDDIT_PASSWORD;
 const targetUser = "the_marketing_geek";
 const messageText = `
-"Hi the_marketing_geek.
+Hi the_marketing_geek.
 
-I see that you post a lot in the marketing subreddit. Ever wish that you cross-post to multiple subreddits on different days?"
+I see that you post a lot in the marketing subreddit. Ever wish that you cross-post to multiple subreddits on different days?
 `;
 
 /**
